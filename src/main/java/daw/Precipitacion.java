@@ -22,30 +22,30 @@ public class Precipitacion {
         this.provincia = provincia;
         this.precipitacion = precipitacion;
     }
-
+    
     public Precipitacion() {
     }
     
     public LocalDate getFecha() {
         return fecha;
     }
-
+    
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
-
+    
     public String getEstacionMeteorologica() {
         return estacionMeteorologica;
     }
-
+    
     public void setEstacionMeteorologica(String estacionMeteorologica) {
         this.estacionMeteorologica = estacionMeteorologica;
     }
-
+    
     public String getProvincia() {
         return provincia;
     }
-
+    
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
