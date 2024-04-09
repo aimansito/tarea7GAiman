@@ -19,5 +19,7 @@ public class Main {
         Map<String,Double> map = Metodos.crearMap(precipitaciones);
         System.out.println(map);
         Json.crearJSON(map);
+        //Usando API Stream, muestra por consola el registro que tiene la mayor precipitación.
+        
     }
 }
