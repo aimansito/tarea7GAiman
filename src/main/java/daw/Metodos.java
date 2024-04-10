@@ -4,9 +4,13 @@
  */
 package daw;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.OptionalDouble;
+import java.util.function.ToDoubleFunction;
+import java.util.stream.DoubleStream;
 
 /**
  *
@@ -19,5 +23,19 @@ public class Metodos {
             map.put(p.getEstacionMeteorologica(),p.getPrecipitacion());
         }
         return map;
+    }
+    public static long estacionFecha(LocalDate fecha1, LocalDate fecha2, ArrayList<Precipitacion> precipitaciones){
+        long tiempo = precipitaciones.stream()
+            .filter(lectura -> lectura.getFecha().compareTo(fecha1) >= 0 && lectura.getFecha().compareTo(fecha2) <= 0)
+            .map(Precipitacion::getEstacionMeteorologica)
+            .distinct()
+            .count();
+        return tiempo;
+    }
+    public static OptionalDouble calcularMediaFecha(LocalDate fecha1, LocalDate fecha2, ArrayList<Precipitacion> precipitaciones){
+        return precipitaciones.stream()
+            .filter(precipitacion -> precipitacion.getFecha().compareTo(fecha1) >= 0 && precipitacion.getFecha().compareTo(fecha2) <= 0)
+            .mapToDouble(p -> p.getPrecipitacion())
+            .average(); 
     }
 }
